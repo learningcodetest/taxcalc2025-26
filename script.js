@@ -1,36 +1,34 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const calculateBtn = document.getElementById("calculateBtn");
-  const explainBtn = document.getElementById("explainBtn");
-  const incomeInput = document.getElementById("incomeInput");
-  const taxOutput = document.getElementById("taxOutput");
-  const modal = document.getElementById("modal");
-  const modalBody = document.getElementById("modalBody");
-  const closeModal = document.getElementById("closeModal");
-  const modeToggle = document.getElementById("modeToggle");
-  const modeIcon = document.getElementById("modeIcon");
+document.addEventListener('DOMContentLoaded', function() {
+  const incomeInput = document.getElementById('incomeInput');
+  const calculateBtn = document.getElementById('calculateBtn');
+  const taxOutput = document.getElementById('taxOutput');
+  const explainBtn = document.getElementById('explainBtn');
+  const modal = document.getElementById('modal');
+  const modalBody = document.getElementById('modalBody');
+  const closeModal = document.getElementById('closeModal');
+  const modeToggle = document.getElementById('modeToggle');
+  const modeIcon = document.getElementById('modeIcon');
 
-  // Load saved mode from localStorage if available.
-  let darkMode = localStorage.getItem("darkMode") === "true";
-
+  // Dark/Light Mode Toggle using localStorage
+  let darkMode = localStorage.getItem('darkMode') === 'true';
   function updateMode() {
     if (darkMode) {
-      document.body.classList.add("dark");
-      modeIcon.textContent = "☀️"; // Sun icon indicates clicking will switch to light mode.
+      document.body.classList.add('dark');
+      modeIcon.textContent = '☀️'; // Sun icon indicates switch to light mode
     } else {
-      document.body.classList.remove("dark");
-      modeIcon.textContent = "🌙"; // Moon icon indicates clicking will switch to dark mode.
+      document.body.classList.remove('dark');
+      modeIcon.textContent = '🌙'; // Moon icon indicates switch to dark mode
     }
-    localStorage.setItem("darkMode", darkMode);
+    localStorage.setItem('darkMode', darkMode);
   }
-
   updateMode();
-
-  modeToggle.addEventListener("click", function() {
+  
+  modeToggle.addEventListener('click', function() {
     darkMode = !darkMode;
     updateMode();
   });
 
-  calculateBtn.addEventListener("click", function() {
+  function calculateTax() {
     const income = parseFloat(incomeInput.value);
     if (isNaN(income)) {
       taxOutput.textContent = "Invalid input";
@@ -53,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     explanation += `Since your taxable income exceeds ₹1,200,000, tax is calculated as follows:\n\n`;
+    
     let tax = 0;
     let remainingIncome = taxableIncome;
     
@@ -99,18 +98,19 @@ document.addEventListener("DOMContentLoaded", function() {
     
     taxOutput.textContent = "₹" + tax.toFixed(2);
     modalBody.textContent = explanation;
-  });
+  }
   
-  explainBtn.addEventListener("click", function() {
+  calculateBtn.addEventListener('click', calculateTax);
+  
+  explainBtn.addEventListener('click', function() {
     modal.style.display = "block";
   });
   
-  closeModal.addEventListener("click", function() {
+  closeModal.addEventListener('click', function() {
     modal.style.display = "none";
   });
   
-  // Close modal when clicking outside modal content.
-  window.addEventListener("click", function(event) {
+  window.addEventListener('click', function(event) {
     if (event.target === modal) {
       modal.style.display = "none";
     }
