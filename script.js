@@ -1,12 +1,16 @@
 function calculateTax() {
   console.log("Calculate button clicked!"); // Debugging statement
 
-  const income = parseFloat(document.getElementById("income").value);
+  // Get the income value
+  const incomeInput = document.getElementById("income");
+  const income = parseFloat(incomeInput.value);
   console.log("Income:", income); // Debugging statement
 
+  // Get the output elements
   const taxLiabilityElement = document.getElementById("taxLiability");
   const explanationTextElement = document.getElementById("explanationText");
 
+  // Validate input
   if (isNaN(income)) {
     console.log("Invalid input"); // Debugging statement
     taxLiabilityElement.textContent = "Invalid input";
@@ -14,6 +18,7 @@ function calculateTax() {
     return;
   }
 
+  // Tax calculation logic
   const deduction = 75000;
   let taxableIncome = income - deduction;
   if (taxableIncome < 0) taxableIncome = 0;
@@ -68,6 +73,7 @@ function calculateTax() {
   explanation += `\n• Adding 4% CESS: ₹${cess.toFixed(2)}\n`;
   explanation += `\nTotal tax liability is ₹${tax.toFixed(2)}.`;
 
+  // Display the result
   taxLiabilityElement.textContent = `₹${tax.toFixed(2)}`;
   explanationTextElement.textContent = explanation;
 
