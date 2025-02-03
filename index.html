@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>How Much Will You Pay?</h1>
+    <h2>Your Annual Income</h2>
+    <input type="number" id="income" placeholder="Enter your income">
+    <button onclick="calculateTax()">Calculate</button>
+    <p id="taxLiability"></p>
+    <button onclick="showExplanation()">Explain</button>
+  </div>
+
+  <!-- Explanation Modal -->
+  <div id="explanationModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Calculation Explanation</h2>
+      <p id="explanationText"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
