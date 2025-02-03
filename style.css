@@ -1,8 +1,8 @@
 /* General Styles */
 body {
   font-family: 'Merriweather', serif;
-  background-color: #212C33;
-  color: #FFFDEC;
+  background-color: #FFFDEC;
+  color: #212C33;
   margin: 0;
   padding: 0;
   display: flex;
@@ -16,6 +16,18 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #212C33;
+    color: #FFFDEC;
+  }
+
+  input,
+  button {
+    border-color: #FFFDEC;
+    color: #FFFDEC;
+    background-color: transparent;
+  }
+
+  .modal-content {
+    background-color: #2C2F33;
     color: #FFFDEC;
   }
 }
@@ -45,7 +57,7 @@ input {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #FFFDEC;
+  border: 1px solid #212C33;
   border-radius: 5px;
   font-size: 16px;
   background-color: inherit;
@@ -57,7 +69,7 @@ button {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 2px solid #FFFDEC;
+  border: 2px solid #212C33;
   border-radius: 10px;
   background-color: transparent;
   color: inherit;
@@ -67,8 +79,8 @@ button {
 }
 
 button:hover {
-  background-color: #FFFDEC;
-  color: #212C33;
+  background-color: #212C33;
+  color: #FFFDEC;
 }
 
 /* Tax Liability Text */
@@ -92,8 +104,8 @@ button:hover {
 }
 
 .modal-content {
-  background-color: #212C33;
-  color: #FFFDEC;
+  background-color: #FFFDEC;
+  color: #212C33;
   padding: 20px;
   border-radius: 10px;
   max-width: 500px;
@@ -104,26 +116,3 @@ button:hover {
 .close {
   position: absolute;
   top: 10px;
-  right: 10px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  button {
-    font-size: 18px;
-  }
-
-  #taxLiability {
-    font-size: 24px;
-  }
-}
