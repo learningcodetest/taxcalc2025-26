@@ -1,9 +1,14 @@
 function calculateTax() {
+  console.log("Calculate button clicked!"); // Debugging statement
+
   const income = parseFloat(document.getElementById("income").value);
+  console.log("Income:", income); // Debugging statement
+
   const taxLiabilityElement = document.getElementById("taxLiability");
   const explanationTextElement = document.getElementById("explanationText");
 
   if (isNaN(income)) {
+    console.log("Invalid input"); // Debugging statement
     taxLiabilityElement.textContent = "Invalid input";
     explanationTextElement.textContent = "Please enter a valid numerical income.";
     return;
@@ -65,6 +70,9 @@ function calculateTax() {
 
   taxLiabilityElement.textContent = `₹${tax.toFixed(2)}`;
   explanationTextElement.textContent = explanation;
+
+  console.log("Tax Liability:", taxLiabilityElement.textContent); // Debugging statement
+  console.log("Explanation:", explanationTextElement.textContent); // Debugging statement
 }
 
 function showExplanation() {
