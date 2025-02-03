@@ -1,5 +1,5 @@
 # taxcalc2025-26
-Income Tax Calculator for Financial Year 2025-2026
+Income Tax Calculator for Financial Year 2025-2026 fully created by AI. Used ChatGPT and Deepseek.
 
 A simple, responsive tax calculator built with HTML, CSS, and JavaScript. It calculates tax liability based on income and provides a detailed explanation of the calculation.
 
