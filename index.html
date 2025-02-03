@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tax Calculator</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>How Much Will You Pay?</h1>
-    <h2>Your Annual Income</h2>
-    <input type="number" id="income" placeholder="Enter your income">
-    <button onclick="calculateTax()">Calculate</button>
-    <p id="taxLiability"></p>
-    <button onclick="showExplanation()">Explain</button>
+  <!-- Dark/Light Mode Toggle Button -->
+  <div class="mode-toggle" id="modeToggle">
+    <span id="modeIcon">🌙</span>
   </div>
 
-  <!-- Explanation Modal -->
-  <div id="explanationModal" class="modal">
+  <div class="container">
+    <h1>How Much Will You Pay?</h1>
+    <label for="incomeInput">Your Annual Income</label>
+    <input type="number" id="incomeInput" placeholder="Enter your income" />
+    <button id="calculateBtn">Calculate</button>
+    <div id="taxOutput" class="tax-output"></div>
+    <button id="explainBtn">Explain</button>
+  </div>
+
+  <!-- Modal for Explanation -->
+  <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Calculation Explanation</h2>
-      <p id="explanationText"></p>
+      <div class="modal-header">
+        <h2>Calculation Explanation</h2>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Explanation text will be injected here -->
+      </div>
     </div>
   </div>
 
